@@ -19,15 +19,18 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
 
         <Border Grid.ColumnSpan="2"
-                Background="#25252525">
+                Background="#25252525"
+                MouseDown="Border_MouseDown">
 
             <Grid HorizontalAlignment="Stretch">
                 <Label Content="Simple Chat"
@@ -37,11 +40,29 @@
                             Orientation="Horizontal">
                     <Button Width="20"
                             Height="20"
+                            Content="🗕"
+                            Background="Transparent"
+                            Foreground="Gray" 
+                            BorderThickness="0"
+                            FontWeight="Bold"
+                            Margin="0 0 0 3"
+                            Click="MinimiseButton_Click"/>
+                    <Button Width="20"
+                            Height="20"
+                            Content="□"
+                            Background="Transparent"
+                            Foreground="Gray" 
+                            BorderThickness="0"
+                            FontWeight="Bold"
+                            Click="WindowStateChangeButton_Click"/>
+                    <Button Width="20"
+                            Height="20"
                             Content="X"
                             Background="Transparent"
                             Foreground="Gray" 
                             BorderThickness="0"
-                            FontWeight="Bold"/>
+                            FontWeight="Bold"
+                            Click="ExitButton_Click"/>
                     
                 </StackPanel>
 

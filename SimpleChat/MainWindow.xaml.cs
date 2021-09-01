@@ -18,11 +18,42 @@ namespace SimpleChat
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
+        private WindowState CurrentWindowState
+        {
+            get => Application.Current.MainWindow!.WindowState;
+            set => Application.Current.MainWindow!.WindowState = value;
+        }
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+            
+        }
+        
+        private void MinimiseButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentWindowState = WindowState.Minimized;
+        }
+ 
+        private void WindowStateChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentWindowState =
+                CurrentWindowState != WindowState.Maximized ? WindowState.Minimized : WindowState.Normal;
+        }
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown(0);
+        }
+
+    
+
     }
 }
