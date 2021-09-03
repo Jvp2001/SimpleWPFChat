@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:SimpleChat"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <local:Colour x:Key="DarkGrey">DarkGrey</local:Colour>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/ContactCard.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
