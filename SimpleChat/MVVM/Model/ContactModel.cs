@@ -11,4 +11,5 @@ namespace SimpleChat.MVVM.Model
         
         public string LastMessage => Messages.Last().Message;
     }
+    
 }

@@ -1,17 +1,48 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using SimpleChat.Core;
 using SimpleChat.MVVM.Model;
 
 namespace SimpleChat.MVVM.ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel: ObservableObject
     {
+        private string message;
+
+        public string Message
+        {
+            get => message;
+            set
+            {
+                message = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        
         public ObservableCollection<MessageModel> Messages { get; set; } = new();
         public ObservableCollection<ContactModel> Contacts { get; set; } = new();
 
+        #region Commands
+
+        public RelayCommand SendCommand { get; set; }
+        public ContactModel SelectedContact { get; set; }
+
+        #endregion
+
         public MainViewModel()
         {
+            SendCommand = new(o =>
+            {
+                Messages.Add(new MessageModel
+                {
+                    Message = Message,
+                    IsFirstMessage = false
+
+                });
+            });
+            Message = "";
             Messages.Add(new MessageModel
             {
                 Username = "Allison",

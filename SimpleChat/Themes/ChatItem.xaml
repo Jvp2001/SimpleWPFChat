@@ -26,7 +26,7 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <DataTrigger Binding="{Binding FirstMessage}" Value="False">
+            <DataTrigger Binding="{Binding IsFirstMessage}" Value="False">
                 <Setter Property="Template" Value="{StaticResource CustomRow}"></Setter>
             </DataTrigger>
         </Style.Triggers>
